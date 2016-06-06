@@ -49,22 +49,16 @@ d3.json("tourism.json", function(error, data) {
             //update variables
             in_tourism[countries[i - 28]] = data[i];
       }
-console.log(in_tourism)
+// console.log(in_tourism)
 
-document.getElementById("myBtn").addEventListener("click", function(){
-    alert("Hello World!");
-});
+
 
 function displayName(name) {
-  svgDoc.getElementById('country_name').firstChild.data = name;
+  getElementById('country_name').firstChild.data = name;
 }
 
 
-//zodra de kaart is geladen, start functie
-window.onload = function() {
-  var JSON_data = JSON.parse(document.getElementById('data').innerHTML);
-  console.log(JSON_data.countries[1].name);
-  };  
+
 
 
 }); 
