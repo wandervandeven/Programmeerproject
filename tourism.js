@@ -28,27 +28,7 @@ countries = ["BEL", "BGR", "CZE", "DNK", "DEU", "EST", "IRL", "GRC", "ESP", "FRA
 //to be used variable
 var data;
 
-d3.json("tourism.json", function(error, data) {
-  if (error) return console.warn(error);
 
-  
-  // all variables to be used
-      var out_tourism = []
-      var in_tourism = []
-
-      //go through all countries out of json array
-      for (i = 0; i < 28; i++)
-      { 
-            //update variables
-            out_tourism[countries[i]] = data[i];
-      }
-
-      //go through all countries out of json array
-      for (i = 28; i < data.length; i++)
-      { 
-            //update variables
-            in_tourism[countries[i - 28]] = data[i];
-      }
 // console.log(in_tourism)
 
 

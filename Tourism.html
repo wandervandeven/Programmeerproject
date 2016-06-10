@@ -3,6 +3,10 @@
 <head>
 	<title>Tourism Europe</title>
 	<link rel="stylesheet" type="text/css" href="tourism.css"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
 
 
@@ -10,17 +14,38 @@
 
 <body>
 
+<div id="background1" style="background-color:#fdae6b;  padding:0px;"> 
+<h1>Tourism Europe</h1>
+<h2>Language, purchasing power and ticket prices</h2>
+<h3>Incoming and Outgoing</h3>
 <script src="//d3js.org/d3.v3.min.js"></script>
 <script src="http://d3js.org/topojson.v1.min.js"></script>
 <div id="container1" style="height: 500px; width: 600px"></div>
+<div id="container2" style="height: 100px; width: 600px"></div>
 <script src="worldmap.js"></script>
-<script src="tourism.js"></script>
-<script src="tickets.js"></script>
-  
-  
-<div id="container1" style="position: relative; width: 80%; max-height: 450px;"></div>
 
-    
+<script src="tickets.js"></script>
+
+
+<div id="container3" style="position: relative; width: 100%; max-height: 50px;"></div>
+<div class="container">
+                                          
+  <div class="dropdown">
+    <button id="dropdown" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Choose Cause
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+      <li value="1"><a href="#">plaintickets</a></li>
+      <li value="2"><a href="#">language families</a></li>
+      <li value="3"><a href="#">purchasing power</a></li>
+    </ul>
+  </div>
+</div>
+
+
+
+<button id="button" type="button" class="btn btn-default navbar-btn">in / out</button>
+
+
 	</body>
 </html>	
 

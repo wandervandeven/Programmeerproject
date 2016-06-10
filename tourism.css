@@ -18,3 +18,73 @@ body {
   stroke: steelblue;
   stroke-width: 1.5px;
 }
+
+.dropdown {
+	position: absolute;
+  	top: 11px;
+  	left: 20px;
+}
+
+.btn-default {
+	position: absolute;
+  	top: 101px;
+  	left: 40px;
+}
+
+#background1 {
+	position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 25%;
+    opacity:50%;
+    
+}
+
+h1 {
+    position: absolute;
+  	text-transform: uppercase;
+  	color: black;
+  	top: 0px;
+  	left: 310px;
+  	font-family: "Trocchi";
+  	font-size: 30px;
+}
+
+h2 {
+    position: absolute;
+  	color: black;
+  	top: 40px;
+  	left: 300px;
+  	font-family: "";
+  	font-size: 5px;
+  	text-align: center;
+}
+
+h3 {
+    position: absolute;
+  	color: black;
+  	top: 70px;
+  	left: 420px;
+  	font-family: "Palatino";
+  	font-size: 15px;
+  	padding-bottom: 10px;
+  	text-align: center;
+}
+
+
+
+#container1 {
+	position: absolute;
+	top: 110px;
+	width: 90px;
+    padding-top: 70px;
+}
+
+#container2 {
+	position: relative;
+	left: 500px;
+	top: 80px;
+    padding-top: 70px;
+}
+

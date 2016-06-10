@@ -12,7 +12,7 @@ countries = ["BEL", "BGR", "CZE", "DNK", "DEU", "EST", "IRL", "GRC", "ESP", "FRA
 
 
 # Open the workbook
-with open ('Ticketprijzen.csv', 'rU') as f:
+with open ('data/outgoing_incoming.csv', 'rU') as f:
 	reader = csv.reader(f, delimiter=';')
 	# Iterate through rows, returning each as a list that you can index:
 	for row in reader:
@@ -23,7 +23,7 @@ with open ('Ticketprijzen.csv', 'rU') as f:
 
 j = json.dumps(plain_tickets)
 # Write to file
-with open('tickets.json', 'w') as f:
+with open('tourism_af.json', 'w') as f:
     f.write(j)
 
  
