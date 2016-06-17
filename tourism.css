@@ -1,6 +1,34 @@
-body {
-  font: 10px sans-serif;
+h1 {
+    position: absolute;
+    text-transform: uppercase;
+    color: black;
+    font-size: 20px;
+    top: 0px;
+    left: 20px;
+    font: 40px sans-serif;
 }
+
+h2 {
+    
+    position: absolute;
+    color: black;
+    top: 40px;
+    left: 20px;
+    font-family: "";
+    text-align: center;
+}
+
+h3 {
+    position: absolute;
+    color: black;
+    top: 70px;
+    left: 20px;
+    font-size: 2.5em;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+
 
 .axis path,
 .axis line {
@@ -13,78 +41,68 @@ body {
   display: none;
 }
 
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.dot {
+  stroke: blue;
+}
+
 .line {
   fill: none;
   stroke: steelblue;
   stroke-width: 1.5px;
 }
 
-.dropdown {
-	position: absolute;
-  	top: 11px;
-  	left: 20px;
+#text-piechart {
+  position: absolute;
+  left: 1000px;
+  top: 380px;
 }
 
-.btn-default {
-	position: absolute;
-  	top: 101px;
-  	left: 40px;
+#button-container{
+  position: absolute;
+  left: 40px;
+  top: 220px;
 }
 
 #background1 {
-	position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 25%;
-    opacity:50%;
+    height: 8%;
+    opacity: 0.2;
     
 }
 
-h1 {
-    position: absolute;
-  	text-transform: uppercase;
-  	color: black;
-  	top: 0px;
-  	left: 310px;
-  	font-family: "Trocchi";
-  	font-size: 30px;
-}
-
-h2 {
-    position: absolute;
-  	color: black;
-  	top: 40px;
-  	left: 300px;
-  	font-family: "";
-  	font-size: 5px;
-  	text-align: center;
-}
-
-h3 {
-    position: absolute;
-  	color: black;
-  	top: 70px;
-  	left: 420px;
-  	font-family: "Palatino";
-  	font-size: 15px;
-  	padding-bottom: 10px;
-  	text-align: center;
-}
-
-
-
 #container1 {
 	position: absolute;
-	top: 110px;
+	left: 40px;
+  top: 180px;
 	width: 90px;
-    padding-top: 70px;
+  padding-top: 70px;
 }
 
 #container2 {
 	position: relative;
 	left: 500px;
-	top: 80px;
-    padding-top: 70px;
+	top: -160px;
+  padding-top: 70px;
 }
 
+#in_of_uit {
+  position: absolute;
+  left: 20px;
+  top: 190px;
+}
+
+#container5 {
+  position: relative;
+  left: 800px;
+  top: 180px;
+  padding-top: 70px;
+}
