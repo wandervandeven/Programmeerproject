@@ -97,8 +97,6 @@ var country_picked = 'BEL';
 
 textInUit(in_or_out, country_picked);
 
-console.log(country_picked)
-
 //text in- of uitstroom
 function textInUit(in_or_out, country_picked) {
   if (in_or_out == 0)
@@ -195,6 +193,12 @@ function makePieChart(id) {
   
   d3.select("#piechart").remove()
 
+  console.log(countries)
+  console.log(String(id))
+  console.log((id in countries))
+  if (!(id.toString() in countries))
+    console.log('dooooeeeiiii')
+
   var data2 = []
   if (in_or_out == 0)
     var country_ticket = in_tourism[id]
@@ -211,41 +215,53 @@ function makePieChart(id) {
   })
 
   j = 0;
-  console.log(data2)
+  // console.log(data2)
   //console.log(data)
-  var data = []
+  var data_pie = []
   var summer = 0;
   for (i = 0; i < 7; i++) {
-    console.log(data2[i].ticket)
+    // console.log(data2[i].ticket)
     if ((data2[i].ticket != undefined) && (data2[i].ticket != 0)) {   
-      data.push(data2[i]); 
-      console.log('data', data)
+      data_pie.push(data2[i]); 
+      // console.log('data', data)
     }
   }
   for (i = 7; i < 28; i++){
+    if (data2[i].ticket != undefined)  
       summer = summer + data2[i].ticket;
   }
   if (summer != undefined && summer != 0) 
-    data.push({"country": 'remainder', "ticket": summer})
+    data_pie.push({"country": 'remainder', "ticket": summer})
 
-  console.log(data)
 
-  if (data.length < 1) {
+
+  if (data_pie.length < 1) {
     console.log('no pie')
     document.getElementById('text-piechart').innerHTML = 'No Data to show';
   }
   else {
     document.getElementById('text-piechart').innerHTML = '';
-  temp1 = data[0]
-  temp2 = data[2]
-  temp3 = data[4]
+  
+  j = data_pie.length - 1;
+  k = 0;
+  var temp = [];
+  var data = [];
 
-  data[0] = data[7]
-  data[7] = temp1
-  data[2] = data[5]
-  data[5] = temp2
-  data[4] = data[3]
-  data[3] = temp3
+  for (i = 0; i < data_pie.length; i++) {
+    if ( j > data_pie.length/2 ) {
+      data.push(data_pie[j])
+      j = j - 1;
+    }  
+    if (k <= data_pie.length/2) {
+      data.push(data_pie[k])
+      k = k + 1;
+    }
+  }    
+
+  console.log(data)
+       
+
+
 
   var width = 600,
       height = 500,
@@ -323,6 +339,9 @@ function makeScatterChart(id){
   //  * axis - sets up axis
   //  */ 
 
+  // console.log(id)
+  // if (!(id in countries))
+    
   var quotum = [];
 
   if (in_or_out == 0)
@@ -338,7 +357,6 @@ function makeScatterChart(id){
   else 
     var country_ticket = out_tourism[id]
   
-  
   //push everything to quotum
   for (var key in country_ticket)
   { 
@@ -347,6 +365,10 @@ function makeScatterChart(id){
       quotum.push({"country" : key, "quotum" : +quota2[key], "tourists" : +country_ticket[key].ticket/1000000});
   }
 
+  // console.log(quotum)
+  if (quotum.length < 1)
+    console.log('fucking hell')
+  else {
   //variable to make scatter
   var data = quotum;
 
@@ -431,7 +453,7 @@ function makeScatterChart(id){
                  .duration(500)
                  .style("opacity", 0);
         });
-
+}
 
   // returns slope, intercept and r-square of the line
   function leastSquares(xSeries, ySeries) {
@@ -477,7 +499,7 @@ function makeScatterChart(id){
     .attr("y2", function(d) { return yScale(d[3]); })
     .attr("stroke", "red")
     .attr("stroke-width", 1.5);
-
+  
 };
 
 
