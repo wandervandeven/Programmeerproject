@@ -210,17 +210,23 @@ function makePieChart(id) {
     return parseFloat(b.ticket) - parseFloat(a.ticket);
   })
 
+  j = 0;
+  console.log(data2)
+  //console.log(data)
   var data = []
   var summer = 0;
   for (i = 0; i < 7; i++) {
-    if (data2[i].ticket != undefined)   
-      data.push(data2[i]);
+    console.log(data2[i].ticket)
+    if ((data2[i].ticket != undefined) && (data2[i].ticket != 0)) {   
+      data.push(data2[i]); 
+      console.log('data', data)
+    }
   }
   for (i = 7; i < 28; i++){
-    if (data2[i].ticket != undefined)  
       summer = summer + data2[i].ticket;
   }
-  data.push({"country": 'remainder', "ticket": summer})
+  if (summer != undefined && summer != 0) 
+    data.push({"country": 'remainder', "ticket": summer})
 
   console.log(data)
 
@@ -256,20 +262,6 @@ function makePieChart(id) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-// #ccebc5
 
   var color = d3.scale.ordinal() 
       .range(b);
@@ -351,7 +343,7 @@ function makeScatterChart(id){
   for (var key in country_ticket)
   { 
     //update variables
-    if (+quota2[key] != 0 && +country_ticket[key].ticket != 0)
+    if (+quota2[key] != 0 && +country_ticket[key].ticket != undefined)
       quotum.push({"country" : key, "quotum" : +quota2[key], "tourists" : +country_ticket[key].ticket/1000000});
   }
 
@@ -479,7 +471,7 @@ function makeScatterChart(id){
   trendline.enter()
     .append("line")
     .attr("class", "trendline")
-    .attr("x1", function(d) { console.log(d[0]); return xScale(d[0])})
+    .attr("x1", function(d) { return xScale(d[0]); })
     .attr("y1", function(d) { return yScale(d[1]); })
     .attr("x2", function(d) { return xScale(d[2]); })
     .attr("y2", function(d) { return yScale(d[3]); })
@@ -516,7 +508,7 @@ d3.select('#button').on('click', function(geography) {
     in_or_out = 0;
     graph.updateChoropleth(in_tourism[country_picked]);
     textInUit(in_or_out)
-    makePieChart(country_picked)
+    makePieChart(country_picked) 
     makeScatterChart(country_picked)
     textInUit(in_or_out, country_picked)
   }
