@@ -91,21 +91,25 @@ function dataFormat(data, prefix){
 };  
 
 //incoming or outgoing to show
-in_or_out = 0;
+var in_or_out = 0;
 
-textInUit(in_or_out)
+var country_picked = 'BEL';
+
+textInUit(in_or_out, country_picked);
+
+console.log(country_picked)
 
 //text in- of uitstroom
-function textInUit(in_or_out) {
+function textInUit(in_or_out, country_picked) {
   if (in_or_out == 0)
-    document.getElementById("in_of_uit").innerHTML = "De instroom van toeristen"
+    document.getElementById("in_of_uit").innerHTML = "De instroom van toeristen in" + ' ' + country_picked;
   else {
-    document.getElementById("in_of_uit").innerHTML = "De uitstroom van toeristen"
+    document.getElementById("in_of_uit").innerHTML = "De uitstroom van toeristen uit" + ' ' + country_picked;
   }
 };
 
 //which country was picked
-country_picked = 0;
+//country_picked = 0;
 
 
 
@@ -128,7 +132,10 @@ var graph = new Datamap({
           geographyConfig: {
             highlightBorderColor: '#bada55',
             popupTemplate: function(geography, data) {
-              return '<div class="hoverinfo"><b>' + geography.properties.name + '</b></br> Tourism: ' +  Math.round(data.ticket/100000, 2) + ' '
+              if (data.ticket < 1)
+                return '<div class="hoverinfo"><b>' + geography.properties.name + '</b></br> Tourism: ' +  'No Data'
+              else
+                return '<div class="hoverinfo"><b>' + geography.properties.name + '</b></br> Tourism: ' +  Math.round(data.ticket/100000, 2) + ' ' + 'Million nights spent'
             },
           highlightBorderWidth: 3
           },
@@ -167,6 +174,8 @@ var graph = new Datamap({
               makePieChart(geography.id)
               makeScatterChart(geography.id)
               country_picked = geography.id
+              textInUit(in_or_out, country_picked)
+
               //give highest prices
               // makeBarChart()
            });
@@ -204,17 +213,18 @@ function makePieChart(id) {
   var data = []
   var summer = 0;
   for (i = 0; i < 7; i++) {
-    if (data2[i].ticket != 0)   
+    if (data2[i].ticket != undefined)   
       data.push(data2[i]);
   }
   for (i = 7; i < 28; i++){
-    summer = summer + data2[i].ticket;
+    if (data2[i].ticket != undefined)  
+      summer = summer + data2[i].ticket;
   }
-  data.push({"country": 'remain', "ticket": summer})
+  data.push({"country": 'remainder', "ticket": summer})
 
   console.log(data)
 
-  if (data.length < 2) {
+  if (data.length < 1) {
     console.log('no pie')
     document.getElementById('text-piechart').innerHTML = 'No Data to show';
   }
@@ -231,16 +241,35 @@ function makePieChart(id) {
   data[4] = data[3]
   data[3] = temp3
 
-  var width = 960,
+  var width = 600,
       height = 500,
       radius = Math.min(width, height) / 4;
 
-  if (in_or_out == 0) {
-    var b = ["#9ecae1", "#6baed6", "#eff3ff", "#c6dbef", "#2171b5", "#4292c6", "#c6dbef", "#9ecae1", "#4292c6", "#6baed6", "#084594", "#eff3ff", "#c6dbef", "#9ecae1", "#6baed6", "#4292c6", "#2171b5", "#eff3ff", "#c6dbef", "#9ecae1", "#6baed6", "#4292c6", "#2171b5", "#084594",];
-  }
-  else {
-    var b = ["#fee0d2", '#fc9272', '#ef3b2c', '#a50f15', '#fb6a4a', '#cb181d', '#a50f15', "#fcbba1", '#67000d', "#fcbba1", "#4292c6", "#2171b5", "#084594", "#eff3ff", "#c6dbef", "#9ecae1", "#6baed6", "#4292c6", "#2171b5", "#eff3ff", "#c6dbef", "#9ecae1", "#6baed6", "#4292c6", "#2171b5", "#084594",];
-  }
+  // if (in_or_out == 0) {
+    var b = ["#8dd3c7", "#ffffb3", "#bebada", "#fb8072", "#80b1d3", "#fdb462", "#b3de69", "#fccde5", "#d9d9d9", "#bc80bd", "#084594", "#eff3ff", "#c6dbef", "#9ecae1", "#6baed6", "#4292c6", "#2171b5", "#eff3ff", "#c6dbef", "#9ecae1", "#6baed6", "#4292c6", "#2171b5", "#084594",];
+  // }
+  // else {
+  //  var b = ["#d6604d", '#f4a582', '#fddbc7', '#d1e5f0', '#fb6a4a', '#92c5de', '#4393c3', '#80b1d3', 'blue']
+
+  //"#fcbba1", '#67000d', "#fcbba1", "#4292c6", "#2171b5", "#084594", "#eff3ff", "#c6dbef", "#9ecae1", "#6baed6", "#4292c6", "#2171b5", "#eff3ff", "#c6dbef", "#9ecae1", "#6baed6", "#4292c6", "#2171b5", "#084594",];
+  // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// #ccebc5
 
   var color = d3.scale.ordinal() 
       .range(b);
@@ -291,9 +320,9 @@ function makePieChart(id) {
 
 function makeScatterChart(id){
 
-  var margin = {top: 20, right: 20, bottom: 30, left: 40},
+  var margin = {top: 20, right: 20, bottom: 80, left: 40},
       width = 400 - margin.left - margin.right,
-      height = 230 - margin.top - margin.bottom;
+      height = 300 - margin.top - margin.bottom;
 
   // /* 
   //  * value accessor - returns the value to encode for a given data object.
@@ -371,8 +400,9 @@ function makeScatterChart(id){
         .attr("class", "label")
         .attr("x", width)
         .attr("y", -6)
+        .attr("dy", "4em")
         .style("text-anchor", "end")
-        .text("koopkrachtquotum");
+        .text("Koopkrachtquotum (landx/landy)");
 
     // y-axis
     svg.append("g")
@@ -382,7 +412,7 @@ function makeScatterChart(id){
         .attr("class", "label")
         .attr("transform", "rotate(-90)")
         .attr("y", 6)
-        .attr("dy", ".71em")
+        .attr("dy", "-3.5em")
         .style("text-anchor", "end")
         .text("Toeristen Aantal ");
 
@@ -468,7 +498,7 @@ function makeScatterChart(id){
 
 makePieChart("BEL", in_tourism)
 makeScatterChart('BEL')
-country_picked = 'BEL'
+
 
 
 //button 
@@ -479,6 +509,7 @@ d3.select('#button').on('click', function(geography) {
     textInUit(in_or_out);
     makePieChart(country_picked);
     makeScatterChart(country_picked);
+    textInUit(in_or_out, country_picked)
     
   }
   else {    
@@ -487,6 +518,7 @@ d3.select('#button').on('click', function(geography) {
     textInUit(in_or_out)
     makePieChart(country_picked)
     makeScatterChart(country_picked)
+    textInUit(in_or_out, country_picked)
   }
 })
 
