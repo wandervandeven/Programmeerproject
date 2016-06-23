@@ -33,7 +33,8 @@ Toerisme en haar oorzaken.
 > Zoals te zien in de linkerbovenhoek zijn er twee knoppen. 
 >
 > - 'In/Uit' --> Hiermee kan ervoor gekozen worden te visualiseren waar, Nederlanders bijvoorbeeld, op vakantie gaan i.p.v. te
-> zien wie er naar Nederland komen. Oftewel de uitstroom van toerisme vanuit Nederland naar andere Europese landen. Alle functies van de > kaart blijven hetzelfde. De Scattterplot en PieChart bewegen beschrijvend mee. De PieChart geeft nu de uitstroom ipv instroom weer. De > ScatterPlot geeft nu het verschil in koopkracht tussen Nederland en elk Europees land (waar data van is). Door nogmaals op de button te > drukken wordt weer de instroom van toerisme per geselecteerd aangegeven.
+> zien wie er naar Nederland komen. Oftewel de uitstroom van toerisme vanuit Nederland naar andere Europese landen. Alle functies 
+> van de kaart blijven hetzelfde. De Scattterplot en PieChart bewegen beschrijvend mee. De PieChart geeft nu de uitstroom ipv instroom weer. De ScatterPlot geeft nu het verschil in koopkracht tussen Nederland en elk Europees land (waar data van is). Door nogmaals op de button te drukken wordt weer de instroom van toerisme per geselecteerd aangegeven.
 > 
 > - 'Choose Cause' --> Hiermee kan gekozen worden om de landsgrenzen op taalfamilie te kleuren. Een taalfamilie is bijv. Romaans; 
 > Italie, Frankrijk, Spanje, Portugal en Roemenie, alle spreken ze de Romaanse taal. Deze landen krijgen nu dezelfde kleur landgrens. 
