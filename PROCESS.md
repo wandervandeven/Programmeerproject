@@ -1,4 +1,8 @@
-ma 30 mei:
+Eindproject Minor Programmeren door Wander van de Ven
+======================================================================================================================
+Logboek
+--------------------------------------------------------------------------------------------------------
+> ma 30 mei:
 > Kiezen van onderwerp: Toerisme. De toerisme stromen van de wereld. Het verifieren van 3 verschillene hypothesen. Begin zoeken data.
 >
 di 31 mei:
