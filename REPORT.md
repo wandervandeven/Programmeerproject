@@ -54,11 +54,32 @@ geeft het weer naar welke 7 landen een bepaald land het meest zijn nachten beste
 > Ik heb een aantal flinke challenges moeten doorstaan. 
 > - Het zoeken naar data over toerisme op wereldschaal was niet vindbaar. Dit bleek uiteindelijk alleen voor Europa en Maleisië vindbaar.
 Zodoende heb ik ervoor gekozen alleen de Europa te visualiseren en slechts en alleen de stromen binnen Europa als data te gebruiken.
+>
 > - Het verkrijgen van de ticket data was ondoenlijk. Het vinden van de goedkoopste tickets per land (soms wel 20 verschillende vertrekkende luchthavens) en (20 verschillende aankomst luchthavens) bleek niet haalbaar. (later meer)
+>
 > - Vervolgens het structuren van data in csv: per rijen. Om vervolgens om te zetten in het juiste json format.
-> - Omdat Europa niet mooi met Datamaps te visualiseren viel heb ik eerst besloten een svg te downloaden. Twee dagen later werd geopperd dat Datamaps een hoge resolutie map online had staan waarna de visualisatie een stuk mooier gemaakt kon worden.
-> Doordat ik bootstrap gebruik voor mijn buttons overschreef deze mijn CSS. Headers waren onbruikbaar en zodoende moest ik met <p> tekst schrijven die dan elk een eigen id kregen.
-> Om borders om mijn landen te tekenen moest ik de datamap opnieuw aanmaken. Echter, zodoende was mijn click-button buiten werking komen te staan. Deze gebruikte namelijk 'updateChoropleth' wat slechts en alleen binnen de newDatamap functie te gebruiken is. De click button moest in mijn newDatamap komen te staan. Echter, 'BEL' kan hierdoor nooit goed gevisualiseerd worden. Slechts bij aanmaken van de map wordt inkomend toerisme zichtbaar. Daarna kan meer 1 keer de 'In/Out' button gebruiken, hierna is deze onbruikbaar.
+>
+> - Nadat bleek dat er geen toerisme data op wereldschaal te vinden was moest ik op zoek naar een kaart van Europa. Na veel gezoek bleek dat deze niet bestond, maar dat hiervoor een speciale projectiefunctie in Datamap zelf voor aan te roepen viel. Met de juiste 'center', 'rotatie' en 'schaal'-waarden kon zo op Europa ingezoomd worden. (hierdoor doen zich later nog meer complicaties voor)
+>
+> - Omdat Europa niet mooi met Datamaps te visualiseren viel heb ik eerst besloten een svg te downloaden. Twee dagen later werd geopperd dat Datamaps een hoge resolutie map online had staan waarna de visualisatie een stuk mooier gemaakt kon worden. 
+>
+> - Doordat ik bootstrap gebruik voor mijn buttons overschreef deze mijn CSS. Headers waren onbruikbaar en zodoende moest ik met <p> tekst schrijven die dan elk een eigen id kregen.
+>
+> - Om borders om mijn landen te tekenen moest ik de datamap opnieuw aanmaken. Echter, zodoende was mijn click-button buiten werking komen te staan. Deze gebruikte namelijk 'updateChoropleth' wat slechts en alleen binnen de newDatamap functie te gebruiken is. De click button moest in mijn newDatamap komen te staan. Echter, 'BEL' kan hierdoor nooit goed gevisualiseerd worden. Slechts bij aanmaken van de map wordt inkomend toerisme zichtbaar. Daarna kan meer 1 keer de 'In/Out' button gebruiken, hierna is deze onbruikbaar.
 Ook bij kiezen voor 'taalfamilie weergave' onder 'Choose-Cause' is de 'In/Out' button maar 1 keer te gebruiken. Dit valt te verhelpen door elke keer na aanmaken van de newDatamap (bij refresh en keuze voor 'taalfamilie) een ander land dan België te selecteren.
+>
 > - BorderColors is niet zomaar per land aan te geven. Na veel research bleek Datamap per land-afkorting zijn omlijning te tekenen danwel default (wit) te omlijnen. Zodoende heb ik bij keuze voor de 'taalfamilie-weergave' een functie aangemaakt die een waarde returnt per land (welke omlijning, of geen omlijning) 
+>
+> - Doordat ik met een zoomfunctie werk ipv slechts de landen te visualiseren die bij Europa horen heb ik de datamap moeten downloaden en lokaal moeten opslaan om deze landen uit deze javascript functie handmatig te kunnen verwijderen. 
+>
+> - De Donut was al snel gemaakt. Echter waren sommige waarden zo klein dat de landnamen (om de donut) elkaar overlapten, of elkaar zelfs helemaal overschreven. Zodoende werd de keuze gemaakt om de grootste 7 weer te geven. 
+Eerste probleem: hoe kun je objecten met daarin een library ordenen op grootte. Hiervoor moest online een functie worden gezocht. 
+>
+Tweede probleem: als je deze dan geordend in de donut plaatst heb je nog steeds hetzelfde probleem als in het begin, namelijk: de kleinste waarden worden als laatste naast elkaar in de donut geplaatst en de namen overschrijven elkaar weer. Zodoende werd ervoor gekozen ombeurt de grootste, kleinste, 1na grootste, 1na kleinste in de donut te plaatsen en daarvoor een functie te schrijven. 
+>
+Derde probleem: nu was niet meer te zien hoe groot het aandeel van deze landen in het totale toeristen-aandeel binnen Europa was. Zodoende werden de 'remaining countries' bij elkaar opgeteld en onder 'other countries' als 8ste 'slice' in de donut gestopt.
+>
+> - Nu elke keer opnieuw een Donut werd aangemaakt maar de svg niet verwijderd, werden deze herhaaldelijk onder elkaar geplaatst. Dit werd verholpen door de container waar deze in werd geplaatst te verwijderen. Nu werd er echter helemaal geen donut meer aangemaakt omdat er geen bestemming voor deze donut meer was. Door de svg in de container te plaatsen, maar deze nog een extra id mee te geven. Zodat later op deze id de map kon worden verwijderd, maar de container bleef bestaan.
+> - Om de sferen van de visualisaties hetzelfde te houden werd ervoor gekozen de landen dezelfde kleuren te geven. Oftewel; ook met mate van donkerblauw of donker-rood. Nu deed het echter vermoeden dat de kleuren van de wereldkaart en de donut met elkaar interacteerde. Dit was echter niet zo. 
+
 
