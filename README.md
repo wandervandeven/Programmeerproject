@@ -42,6 +42,6 @@ trekken. Het heeft mij altijd verwonderd dat er per land zulke verschillende rei
 >
 >
 >
-> ![](achtergrond.png)
+> ![](doc/achtergrond.png)
 >
 > 
