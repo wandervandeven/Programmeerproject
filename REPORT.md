@@ -74,11 +74,12 @@ Ook bij kiezen voor 'taalfamilie weergave' onder 'Choose-Cause' is de 'In/Out' b
 > - Doordat ik met een zoomfunctie werk ipv slechts de landen te visualiseren die bij Europa horen heb ik de datamap moeten downloaden en lokaal moeten opslaan om deze landen uit deze javascript functie handmatig te kunnen verwijderen. 
 >
 > - De Donut was al snel gemaakt. Echter waren sommige waarden zo klein dat de landnamen (om de donut) elkaar overlapten, of elkaar zelfs helemaal overschreven. Zodoende werd de keuze gemaakt om de grootste 7 weer te geven. 
-Eerste probleem: hoe kun je objecten met daarin een library ordenen op grootte. Hiervoor moest online een functie worden gezocht. 
 >
-Tweede probleem: als je deze dan geordend in de donut plaatst heb je nog steeds hetzelfde probleem als in het begin, namelijk: de kleinste waarden worden als laatste naast elkaar in de donut geplaatst en de namen overschrijven elkaar weer. Zodoende werd ervoor gekozen ombeurt de grootste, kleinste, 1na grootste, 1na kleinste in de donut te plaatsen en daarvoor een functie te schrijven. 
+  Eerste probleem: hoe kun je objecten met daarin een library ordenen op grootte. Hiervoor moest online een functie worden gezocht. 
 >
-Derde probleem: nu was niet meer te zien hoe groot het aandeel van deze landen in het totale toeristen-aandeel binnen Europa was. Zodoende werden de 'remaining countries' bij elkaar opgeteld en onder 'other countries' als 8ste 'slice' in de donut gestopt.
+  Tweede probleem: als je deze dan geordend in de donut plaatst heb je nog steeds hetzelfde probleem als in het begin, namelijk: de kleinste waarden worden als laatste naast elkaar in de donut geplaatst en de namen overschrijven elkaar weer. Zodoende werd ervoor gekozen ombeurt de grootste, kleinste, 1na grootste, 1na kleinste in de donut te plaatsen en daarvoor een functie te schrijven. 
+>
+  Derde probleem: nu was niet meer te zien hoe groot het aandeel van deze landen in het totale toeristen-aandeel binnen Europa was. Zodoende werden de 'remaining countries' bij elkaar opgeteld en onder 'other countries' als 8ste 'slice' in de donut gestopt.
 >
 > - Nu elke keer opnieuw een Donut werd aangemaakt maar de svg niet verwijderd, werden deze herhaaldelijk onder elkaar geplaatst. Dit werd verholpen door de container waar deze in werd geplaatst te verwijderen. Nu werd er echter helemaal geen donut meer aangemaakt omdat er geen bestemming voor deze donut meer was. Door de svg in de container te plaatsen, maar deze nog een extra id mee te geven. Zodat later op deze id de map kon worden verwijderd, maar de container bleef bestaan.
 >
