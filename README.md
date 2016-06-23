@@ -3,23 +3,32 @@ Eindproject Minor Programmeren door Wander van de Ven
 Toerisme en haar oorzaken.
 --------------------------------------------------------------------------------------------------------
 ###  Visualisaties
-> In dit project worden een aantal hypotetische oorzaken mbt toerisme gevisualiseerd.
-> De landkaart van Europa wordt per land gekleurd in mate van toerisme. Des te donkerder, des te meer toerisme. 
-> Komen er veel toeristen uit een bepaald land, dan wordt dat land dus relatief donker van kleur.
-> Als default visualisatie wordt de wereldkaart naar instroom van toeristen in Belgie gekleurd.
+> Waar een studiegenootje moest uitzoeken welke toeristen naar het Rijksmuseum komen wilde ik een soortgelijk onderzoek een stuk breder 
+> trekken. Het heeft mij altijd verwonderd dat er per land zulke verschillende reisbestemmingen worden gekozen.
 >
-> Mbv van hoveren over een Europees land verschijnt een pop-up met de mate van toerisme uit dat land.
-> Deze instroom wordt gegeven door de blauwe kleur.
-> Op click kan dit voor elk Europees land worden opgevraagd, de kaart kleur zich daarop vanzelf. Voorbeeld: wordt er 
-> op Frankrijk geklikt, dan ziet men de mate van toerisme vanuit alle verschillende landen van Europa in kleurdiepte.
+> In dit project worden niet alleen toeristenstromen gevisualiseerd. Ook wordt mbv visalisaties getracht een aantal hypotetische oorzaken > mbt toerisme te veriefiëren, namelijk:
+> - reist men af naar landen waar hun koopkracht het meest wordt vergroot
+> - bezoekt men vooral omringende landen
+> - verblijft men graag in landen waar men nagenoeg dezelfde taal spreekt (zelfde taalfamilie)
+>
+> Als uitgangspositie uiteraard een visualisatie van toeristenstromen. Per geselecteerd land kan in de 'default' visualisatie van de 
+> wereldkaart bekeken worden in welke mate elk Europees land naar een geselecteerd land afreist. Namelijk, hoeveel nachten worden er per > land in dit land overnacht. Standaard is Belgie gekozen en zodoende wordt Europa gekleurd, in de mate waarin elk land hun nachten in 
+> Belgie verblijft. Komen er veel toeristen uit een bepaald land, dan wordt dit land relatief donker van kleur.
+> 
+> Door de muis op een Europees land te houden, bijvoorbeeld Oostenrijk, wordt in een pop-up het aantal nachten dat Oostenrijk in Belgie 
+> overnacht weergegeven.
+> Deze instroom van toerisme wordt gegeven door de blauwe kleur.
+> Op click kan voor elk Europees land deze instroom worden opgevraagd, de kaart kleur zich daarop vanzelf. Voorbeeld: wordt er 
+> op Frankrijk geklikt, dan ziet men de mate van toerisme vanuit alle verschillende landen van Europa door mate van donkerte in de kleur
+> blauw.
 > Vanuit deze visualisatie kan men opmaken vanuit waar men naar het desbetreffende land gaat. De eerste hypothese kan 
 > hiermee getoetst worden: komt toerisme vooral uit omringende landen?
 > 
 > Corresponderend met de Europese kaart worden er 2 extra beschrijvende visualisaties gemaakt:
 > - De PieChart geeft de 7 grootste toeristen-origine en hun relatieve aandeel weer.
 > - De ScatterPlot geeft het verband tussen koopkrachtquotum en toerisme.
->    Met deze ScatterPlot kan de tweede hypothese getoetst worden: kiest men hun bestemming door een impuls in koopkracht? In Polen kan 
->    een Nederlander een stuk meer kopen dan in Zwitserland.
+> Met deze ScatterPlot kan de tweede hypothese getoetst worden: kiest men hun bestemming door een impuls in koopkracht? In Polen kan 
+> een Nederlander een hoop meer kopen dan in Zwitserland.
 >
 > Zoals te zien in de linkerbovenhoek zijn er twee knoppen. 
 >
