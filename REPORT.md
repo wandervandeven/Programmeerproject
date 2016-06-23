@@ -51,4 +51,14 @@ geeft het weer naar welke 7 landen een bepaald land het meest zijn nachten beste
 > - 'Choose Cause' --> Hiermee kan gekozen worden om de landsgrenzen op taalfamilie te kleuren. Een taalfamilie is bijv. Romaans; 
 > Italie, Frankrijk, Spanje, Portugal en Roemenie, alle spreken ze de Romaanse taal. Deze landen krijgen nu dezelfde kleur landgrens. 
 >
->
+> Ik heb een aantal flinke challenges moeten doorstaan. 
+> - Het zoeken naar data over toerisme op wereldschaal was niet vindbaar. Dit bleek uiteindelijk alleen voor Europa en Maleisië vindbaar.
+Zodoende heb ik ervoor gekozen alleen de Europa te visualiseren en slechts en alleen de stromen binnen Europa als data te gebruiken.
+> - Het verkrijgen van de ticket data was ondoenlijk. Het vinden van de goedkoopste tickets per land (soms wel 20 verschillende vertrekkende luchthavens) en (20 verschillende aankomst luchthavens) bleek niet haalbaar. (later meer)
+> - Vervolgens het structuren van data in csv: per rijen. Om vervolgens om te zetten in het juiste json format.
+> - Omdat Europa niet mooi met Datamaps te visualiseren viel heb ik eerst besloten een svg te downloaden. Twee dagen later werd geopperd dat Datamaps een hoge resolutie map online had staan waarna de visualisatie een stuk mooier gemaakt kon worden.
+> Doordat ik bootstrap gebruik voor mijn buttons overschreef deze mijn CSS. Headers waren onbruikbaar en zodoende moest ik met <p> tekst schrijven die dan elk een eigen id kregen.
+> Om borders om mijn landen te tekenen moest ik de datamap opnieuw aanmaken. Echter, zodoende was mijn click-button buiten werking komen te staan. Deze gebruikte namelijk 'updateChoropleth' wat slechts en alleen binnen de newDatamap functie te gebruiken is. De click button moest in mijn newDatamap komen te staan. Echter, 'BEL' kan hierdoor nooit goed gevisualiseerd worden. Slechts bij aanmaken van de map wordt inkomend toerisme zichtbaar. Daarna kan meer 1 keer de 'In/Out' button gebruiken, hierna is deze onbruikbaar.
+Ook bij kiezen voor 'taalfamilie weergave' onder 'Choose-Cause' is de 'In/Out' button maar 1 keer te gebruiken. Dit valt te verhelpen door elke keer na aanmaken van de newDatamap (bij refresh en keuze voor 'taalfamilie) een ander land dan België te selecteren.
+> - BorderColors is niet zomaar per land aan te geven. Na veel research bleek Datamap per land-afkorting zijn omlijning te tekenen danwel default (wit) te omlijnen. Zodoende heb ik bij keuze voor de 'taalfamilie-weergave' een functie aangemaakt die een waarde returnt per land (welke omlijning, of geen omlijning) 
+
