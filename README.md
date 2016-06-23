@@ -39,3 +39,9 @@ trekken. Het heeft mij altijd verwonderd dat er per land zulke verschillende rei
 > - 'Choose Cause' --> Hiermee kan gekozen worden om de landsgrenzen op taalfamilie te kleuren. Een taalfamilie is bijv. Romaans; 
 > Italie, Frankrijk, Spanje, Portugal en Roemenie, alle spreken ze de Romaanse taal. Deze landen krijgen nu dezelfde kleur landgrens. 
 >
+>
+>
+>
+> ![](doc/achtergrond.png)
+>
+> 
