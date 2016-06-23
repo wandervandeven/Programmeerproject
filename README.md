@@ -3,8 +3,8 @@ Eindproject Minor Programmeren door Wander van de Ven
 Toerisme en haar oorzaken.
 --------------------------------------------------------------------------------------------------------
 ###  Visualisaties
-> Waar een studiegenootje moest uitzoeken welke toeristen naar het Rijksmuseum komen wilde ik een soortgelijk onderzoek een stuk breder 
-> trekken. Het heeft mij altijd verwonderd dat er per land zulke verschillende reisbestemmingen worden gekozen.
+> Waar een studiegenootje moest uitzoeken welke toeristen naar het Rijksmuseum komen en op welke toeristen het Rijksmuseum juist meer te targeten vond ik dit een geweldig interessant vraagstuk. Ik wilde een soortgelijk onderzoek een stuk breder 
+> trekken. Het heeft mij altijd verwonderd dat er per land zulke verschillende reisbestemmingen worden gekozen. Zodoende wilde ik weten welke landen er naar welk land afreist en op welk land een bepaald land juist zou moeten targeten. 
 >
 > In dit project worden niet alleen toeristenstromen gevisualiseerd. Ook wordt mbv visalisaties getracht een aantal hypotetische oorzaken > mbt toerisme te veriefiëren, namelijk:
 > - reist men af naar landen waar hun koopkracht het meest wordt vergroot
