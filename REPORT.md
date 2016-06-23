@@ -84,7 +84,9 @@ Ook bij kiezen voor 'taalfamilie weergave' onder 'Choose-Cause' is de 'In/Out' b
 > - Nu elke keer opnieuw een Donut werd aangemaakt maar de svg niet verwijderd, werden deze herhaaldelijk onder elkaar geplaatst. Dit werd verholpen door de container waar deze in werd geplaatst te verwijderen. Nu werd er echter helemaal geen donut meer aangemaakt omdat er geen bestemming voor deze donut meer was. Door de svg in de container te plaatsen, maar deze nog een extra id mee te geven. Zodat later op deze id de map kon worden verwijderd, maar de container bleef bestaan.
 >
 > - Om de sferen van de visualisaties hetzelfde te houden werd ervoor gekozen de landen dezelfde kleuren te geven. Oftewel; ook met mate van donkerblauw of donker-rood. Nu deed het echter vermoeden dat de kleuren van de wereldkaart en de donut met elkaar interacteerde. Dit kon echter niet, omdat het dan voorkwam dat naast elkaar liggende landen in de donut, binnen dezelfde bandbreedte in de kleurtoekenning voor de wereldkaart lagen en ze daarmee een gezamenlijke 'slice' van de pizza bezaten. Zodoende werd ervoor gekozen deze schijn-interactie te verwijderen door totaal nieuwe kleuren toe te kennen in de donut. 
-> 
+>
+> - In mijn proposal koos ik ervoor 5 random landen in een barchart te zetten met een staaf voor (ticketprijzen --> nu -->) 'koopkrachtquota' en een staaf voor 'toerisme-aantallen' met voor beide een y-as. Om daar 5 random uit te kiezen en een verband te kunnen zien. In de vrijdag presentatie-sessie werd geopperd om ipv deze barchart een scatter te maken. Die geeft dit veel natuurlijk, overzichtelijker en volledig weer. Zodoende werde besloten om ipv een barchart een scatter te maken.
+>
 > - Doordat sommige landen geen data te visualiseren hebben, waardoor de donut wegblijft maar de landnamen over elkaar geschreven worden in de desbetreffende container, moest hiervoor een stokje worden gestoken. Oftewel, landen met niet genoeg data krijgen geen donut, maar de tekst: 'No Data to show'.
 >
 > - Bij zowel de scatterChart als de PieChart, moest bij eveneens meenemen van de uitgaande stromen van toerisme hun functie wat uitgebreid worden. Nu moest eveneneens worden meegegeven of de ingaande of uitgaande stromen gevisualiseerd dienden te worden. 
@@ -92,5 +94,8 @@ Ook bij kiezen voor 'taalfamilie weergave' onder 'Choose-Cause' is de 'In/Out' b
 > - Mijn ScatterDiagram kon eenvoudig gemaakt worden mbv D3. Echter wilde de trendlijn zo snel niet lukken. Na een hoop console.log bleek dat mijn variabele namen iets verschilden van de namen die gebruikt werden in het trendlijn voorbeeld. Na wat naamverandering viel alles op z'n plek.
 >
 > - Doordat de data veelal tourisme aantallen van 0 heeft --> er is geen data, wordt de trendlijn enormed biased. Zodoende is ervoor gekozen deze data niet in de scatterChart toe te voegen.
-
-
+>
+> ### Why different?
+> 
+> - In mijn proposal koos ik ervoor 5 random landen in een barchart te zetten met een staaf voor (ticketprijzen --> nu -->) 'koopkrachtquota' en een staaf voor 'toerisme-aantallen' met voor beide een y-as. Om daar 5 random uit te kiezen en een verband te kunnen zien. In de vrijdag presentatie-sessie werd geopperd om ipv deze barchart een scatter te maken. Die geeft dit veel natuurlijk, overzichtelijker en volledig weer. De Scatter met trendlijn is ervoor gemaakt om zo'n verband aan te kunnen duiden. Significantie en R^2 komt hieruit natuurlijk niet naar voren. Maar met lineaire regressie (de error-zo klein mogelijk maken zodat het beschrijvende gedeelte zo groot mogelijk is) is de scatter in dit geval een veel logischere keuze dan een bar-chart. 
+>
