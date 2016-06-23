@@ -1,3 +1,4 @@
+
 #h1 {
     font-family: Copperplate, 'Copperplate Gothic Light', fantasy;
     position: absolute;
@@ -88,7 +89,7 @@
 #container1 {
 	position: absolute;
 	left: 120px;
-  top: 240px;
+  top: 230px;
 	width: 90px;
   padding-top: 70px;
 }
@@ -114,10 +115,12 @@
   position:relative;
   top: 600px; 
   margin: 0 0 -80px 0;
+
 }
 
 ul li span{
   font-size: 10px;
+  vertical-align: middle;
 }
 
 .inleiding {
@@ -130,6 +133,20 @@ ul li span{
     text-align: left;
 }
 
+#footer {
+    position: absolute;
+    top: 120px;
+    left: 10px;
+    font-size: 0.8em;
+    padding-bottom: 10px;
+    text-align: left;
+    font-family: Copperplate, 'Copperplate Gothic Light', fantasy;
+}
+
+.naam {
+  top: 20px;
+  left: 900px;
+}
 
 .legend {
   top: 800px;
@@ -137,7 +154,19 @@ ul li span{
 
 #container5 {
   position: relative;
-  left: 830px;
-  top: 290px;
+  left: 800px;
+  top: 270px;
   padding-top: 70px;
+}
+
+.tooltip {
+  box-sizing: border-box;
+  color: red;
+  position: absolute;
+  padding:15px;
+  text-align: center;
+  font-size: 14px;
+  pointer-events: none;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 6px;
 }

@@ -234,7 +234,7 @@ function makeMap(temper, dropper, country_picked) {
             geographyConfig: {
               borderColor: function (data) {
               if ( dropper == 2) { 
-                console.log('dropper')
+                //console.log('dropper')
                 for (i = 0; i < countries.length; i++) {
                   if( data.id == lang_family[i][0]){
                     if (lang_family[i][1] == 1)
@@ -294,45 +294,44 @@ function makeMap(temper, dropper, country_picked) {
              //when a country is clicked, call function MakeBarChart
              done: function(datamap) {
                 datamap.svg.selectAll('.datamaps-subunit').on('click', function(geography) {
-                //makeMap(geography.id)
-                country_picked = geography.id
-                if (in_or_out == 0)
-                  graph.updateChoropleth(in_tourism[geography.id]);
-                else
-                  graph.updateChoropleth(out_tourism[geography.id]);
-                makePieChart(geography.id)
-                makeScatterChart(geography.id)
-                textInUit(in_or_out, country_picked)
+                  //makeMap(geography.id)
+                  country_picked = geography.id
+                  //console.log(typeof(geography.id))
+                  if (in_or_out == 0)
+                    graph.updateChoropleth(in_tourism[geography.id]);
+                  else
+                    graph.updateChoropleth(out_tourism[geography.id]);
+                  makePieChart(geography.id)
+                  makeScatterChart(geography.id)
+                  textInUit(in_or_out, country_picked)
+                });
                 
-                d3.select('#button').on('click', function(geography) {
-                  if (in_or_out == 0) {
-                    in_or_out = 1;
-                    graph.updateChoropleth(out_tourism[country_picked]);
-                    textInUit(in_or_out);
-                    makePieChart(country_picked);
-                    makeScatterChart(country_picked);
-                    textInUit(in_or_out, country_picked)
-                    console.log('test1')
-                    
-                  }
-                  else {    
-                    in_or_out = 0;
-                    graph.updateChoropleth(in_tourism[country_picked]);
-                    textInUit(in_or_out)
-                    makePieChart(country_picked) 
-                    makeScatterChart(country_picked)
-                    textInUit(in_or_out, country_picked)
-                    console.log('test2')
-                  }
-                })
-
-
-
-
-             });
-            }
+              }
       });
-    //button 
+    //button
+    d3.select('#button').on('click', function() {
+      if (in_or_out == 0) {
+        in_or_out = 1;
+        //console.log(country_picked)
+        //console.log(out_tourism)
+        graph.updateChoropleth(out_tourism[country_picked]);
+        makePieChart(country_picked);
+        makeScatterChart(country_picked);
+        textInUit(in_or_out, country_picked)
+        console.log('test1')
+        
+      }
+      else {    
+        in_or_out = 0;
+        //console.log(typeof(country_picked))
+        //console.log(in_tourism)
+        graph.updateChoropleth(in_tourism[country_picked]);
+        makePieChart(country_picked) 
+        makeScatterChart(country_picked)
+        textInUit(in_or_out, country_picked)
+        console.log('test2')
+      }
+    }) 
   };
 
 //Legend
@@ -346,18 +345,21 @@ function makeMap(temper, dropper, country_picked) {
 function makePieChart(id) {
   
   d3.select("#piechart").remove()
-
+  //console.log('hallo')
+  //console.log(id)
+  console.log(in_or_out)
 
   if (!(countries.includes(id)))
     document.getElementById('text-piechart').innerHTML = 'No Data to show';
   else { 
-    
+
     //ask for the right data
-    if (in_or_out == 0)
+    if (in_or_out == 0){
       var country_ticket = in_tourism[id];
+    }
     else 
       var country_ticket = out_tourism[id];
-    console.log(country_ticket)
+    //console.log(country_ticket)
     //make variable for piechart data
     var data2 = []
 
@@ -389,7 +391,7 @@ function makePieChart(id) {
     }
     //if the remainder != 0 nor undefined, insert into piechart data
     if (summer != undefined && summer != 0) 
-      data_pie.push({"country": 'remainder', "ticket": summer})
+      data_pie.push({"country": 'other countries', "ticket": summer})
 
 
     //no data? --> show message
@@ -482,8 +484,8 @@ function makePieChart(id) {
 function makeScatterChart(id){
 
   var margin = {top: 20, right: 20, bottom: 80, left: 40},
-      width = 400 - margin.left - margin.right,
-      height = 300 - margin.top - margin.bottom;
+      width = 550 - margin.left - margin.right,
+      height = 360 - margin.top - margin.bottom;
 
   // /* 
   //  * value accessor - returns the value to encode for a given data object.
@@ -522,8 +524,10 @@ function makeScatterChart(id){
     for (var key in country_ticket)
     { 
       //update variables
-      if (+quota2[key] != 0 && +country_ticket[key].ticket != undefined)
+      //console.log(+country_ticket[key].ticket)
+      if (+country_ticket[key].ticket != 0 && +country_ticket[key].ticket != undefined && +country_ticket[key].ticket != NaN){
         quotum.push({"country" : key, "quotum" : +quota2[key], "tourists" : +country_ticket[key].ticket/1000000});
+      }
     }
     
 
@@ -541,7 +545,7 @@ function makeScatterChart(id){
       var xValue = function(d) { return d.quotum;}, // data -> value
           xScale = d3.scale.linear().range([0, width]), // value -> display
           xMap = function(d) { return xScale(xValue(d));}, // data -> display
-          xAxis = d3.svg.axis().scale(xScale).orient("bottom");
+          xAxis = d3.svg.axis().scale(xScale).orient("bottom").tickFormat(d3.format(".2f"));
 
       // setup y
       var yValue = function(d) { return d.tourists;}, // data -> value
@@ -579,7 +583,7 @@ function makeScatterChart(id){
             .attr("y", -6)
             .attr("dy", "4em")
             .style("text-anchor", "end")
-            .text("Koopkrachtquotum (landx/landy)");
+            .text("Purchasing Power quotum (countryx/countryy)");
 
         // y-axis
         svg.append("g")
@@ -591,7 +595,7 @@ function makeScatterChart(id){
             .attr("y", 6)
             .attr("dy", "-3.5em")
             .style("text-anchor", "end")
-            .text("Toeristen Aantal ");
+            .text("Tourism amount (Mln days/year)");
 
         // draw dots
         svg.selectAll(".dot")
@@ -605,7 +609,7 @@ function makeScatterChart(id){
                 console.log('mouse')
                 tooltip.transition()
                      .duration(200)
-                     .style("opacity", .9);
+                     .style("opacity", 0.9);
                 tooltip.html(d.country + "<br/> (" + xValue(d) 
                 + ", " + yValue(d) + ")")
                      .style("left", (d3.event.pageX + 20) + "px")
@@ -626,6 +630,19 @@ function makeScatterChart(id){
       var y1 = leastSquaresCoeff[0]*xSeries[0] + leastSquaresCoeff[1];
       var x2 = xLabels[xLabels.length - 1];
       var y2 = leastSquaresCoeff[0] * xSeries[xSeries.length - 1] + leastSquaresCoeff[1];
+      
+      // change endpoints of the regression line if y2 is lower/higher than minimal/maximal y-axis value
+      // if (y2 < d3.min(ySeries))
+      // {
+      //   y2 = d3.min(ySeries);
+      //   x2 = (d3.min(ySeries) - leastSquaresCoeff.intercept) / leastSquaresCoeff.slope;
+      // }
+      // else if (y2 > d3.max(ySeries))
+      // {
+      //   y2 = d3.max(ySeries);
+      //   x2 = (d3.max(ySeries) - leastSquaresCoeff.intercept) / leastSquaresCoeff.slope;
+      // }
+
       var trendData = [[x1,y1,x2,y2]];
       var trendline = svg.selectAll(".trendline")
       .data(trendData);
@@ -648,10 +665,10 @@ function makeScatterChart(id){
 
 //make first Piechart and ScatterChart
 
-makePieChart("BEL", in_tourism)
+makePieChart('BEL')
 makeScatterChart('BEL')
 
-
+//document.getElementsByClassName('BEL')[0].click()
 
 
 
