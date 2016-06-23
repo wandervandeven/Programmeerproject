@@ -15,18 +15,44 @@
 
 <body bgcolor = "white">
 <div>
-<img id = "background1" src="achtergrond.jpg" alt="Mountain View" style="width:1500px;height:170px;">
+<img id = "background1" src="achtergrond.jpg" alt="Mountain View" style="width:1500px;height:100px;">
 <div>
 
-<h1>Tourism Europe</h1>
-<h2>Language, purchasing power and ticket prices</h2>
-<h3>Are they the causes?</h3>
+  <div class = "legend">
+    <ul type = "square">
+      <li style = "color: #ece7f2"><span style = "color : black"> < 200 K </span></li>
+      <li style = "color: #d0d1e6"><span style = "color : black"> < 400 K </span></li>
+      <li style = "color: #a6bddb"><span style = "color : black"> < 800 K </span></li>
+      <li style = "color: #74a9cf"><span style = "color : black"> < 1 Mln </span></li>
+      <li style = "color: #3690c0"><span style = "color : black"> < 2.5 Mln </span></li>
+      <li style = "color: #0570b0"><span style = "color : black"> < 5 Mln </span></li>
+      <li style = "color: #045a8d"><span style = "color : black"> < 10 Mln </span></li>
+      <li style = "color: #023858"><span style = "color : black"> > 10 Mln </span></li>
+
+
+      <li style = "color: #fee0d2"><span style = "color : black"> < 200 K </span></li>
+      <li style = "color: #fcbba1"><span style = "color : black"> < 400 K </span></li>
+      <li style = "color: #fc9272"><span style = "color : black"> < 800 K </span></li>
+      <li style = "color: #fb6a4a"><span style = "color : black"> < 1 Mln </span></li>
+      <li style = "color: #ef3b2c"><span style = "color : black"> < 2.5 Mln</span></li>
+      <li style = "color: #cb181d"><span style = "color : black"> < 5 Mln </span></li>
+      <li style = "color: #a50f15"><span style = "color : black"> < 10 Mln </span></li>
+      <li style = "color: #67000d"><span style = "color : black"> > 10 Mln</span></li>
+
+      <li style = "color: #7e7e7e"><span style = "color : black">No Data</span></li>        
+    </ul>
+  </div>
+
+<p id ='h1'>Tourism Europe</p>
+<p id = 'h2'>Language, purchasing power and ticket prices</p>
 <p id = "in_of_uit"></p>
 <p id = "text-piechart"></p>
+<p id = "text-scatterchart"></p>
 <script src="//d3js.org/d3.v3.min.js"></script>
 <script src="http://d3js.org/topojson.v1.min.js"></script>
 <div id="container1" style="height: 500px; width: 600px"></div>
 <div id="container2" style="height: 100px; width: 600px"></div>
+
 <script src="worldmap.js"></script>
 
 <script src="tickets.js"></script>
@@ -48,9 +74,23 @@
 <div id="container5" style="position: relative; width: 100%; max-height: 50px;"></div>
 
 
+<p class = "inleiding"> Of interest are causes of tourism. 
+  <br><br> 
+  <ul class = "inleiding"><br>
+    <li> Do people favor to visit surrounding countries? (shown in map as default visualisation)<br> 
+    <li>Whether people tend to go to countries that are in the same language families <br>(Roman, German, Scandinavian) (visible if chosen under 'Choose Cause') <br> 
+    <li>  Whether people pick their destination for increasd purchasing power (shown in scatter)<br> 
+    </li>
+    <br><br>
+    By pressing the In/Out button one can see the tourist streams per country incoming, respectively outgoing. <br>This corresponds with the invormative donut and scatter.
+    <br>
+    <ul>
+      <li>In the scatterplot the relation between tourist numbers (in or out) and purchasing power is shown by a trendline. 
+      <br>
+      <li>In the donut one can see the top 7 tourist destinations or origins.
+    </ul>    
 
-
-
+</p>
 
 
 	</body>
