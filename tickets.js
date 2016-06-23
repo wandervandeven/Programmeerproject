@@ -289,8 +289,7 @@ function makeMap(temper, dropper, country_picked) {
                   'defaultFill': 'grey',
                   'none' : 'grey'
              },
-            data: temper,
-            paintBorder: 'BEL',          
+            data: temper,         
              //when a country is clicked, call function MakeBarChart
              done: function(datamap) {
                 datamap.svg.selectAll('.datamaps-subunit').on('click', function(geography) {
@@ -312,25 +311,16 @@ function makeMap(temper, dropper, country_picked) {
     d3.select('#button').on('click', function() {
       if (in_or_out == 0) {
         in_or_out = 1;
-        //console.log(country_picked)
-        //console.log(out_tourism)
         graph.updateChoropleth(out_tourism[country_picked]);
-        makePieChart(country_picked);
-        makeScatterChart(country_picked);
-        textInUit(in_or_out, country_picked)
-        console.log('test1')
-        
       }
       else {    
         in_or_out = 0;
-        //console.log(typeof(country_picked))
-        //console.log(in_tourism)
         graph.updateChoropleth(in_tourism[country_picked]);
-        makePieChart(country_picked) 
-        makeScatterChart(country_picked)
-        textInUit(in_or_out, country_picked)
-        console.log('test2')
-      }
+      }  
+      makePieChart(country_picked) 
+      makeScatterChart(country_picked)
+      textInUit(in_or_out, country_picked)
+      
     }) 
   };
 
@@ -369,6 +359,7 @@ function makePieChart(id) {
     }
 
     //sort the data
+    //http://www.javascriptkit.com/javatutors/arraysort2.shtml
     data2.sort(function(a,b) {
       return parseFloat(b.ticket) - parseFloat(a.ticket);
     })
