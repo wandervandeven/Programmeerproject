@@ -16,13 +16,15 @@ Toerisme en haar oorzaken.
 > hiermee getoetst worden: komt toerisme vooral uit omringende landen?
 > 
 > Corresponderend met de Europese kaart worden er 2 extra beschrijvende visualisaties gemaakt:
-> 1. De PieChart geeft de 7 grootste toeristen-origine en relatieve mate aan.
-> 2. De ScatterPlot geeft het verband tussen verschil in koopkracht en toerisme.
->    Met de ScatterPlot kan de tweede hypothese getoetst worden: kiest men hun bestemming door een impuls in koopkracht?
+> 1. De PieChart geeft de 7 grootste toeristen-origine en hun relatieve aandeel weer.
+> 2. De ScatterPlot geeft het verband tussen koopkrachtquotum en toerisme.
+>    Met deze ScatterPlot kan de tweede hypothese getoetst worden: kiest men hun bestemming door een impuls in koopkracht? In Polen kan 
+>    een Nederlander een stuk meer kopen dan in Zwitserland.
 >
 > Zoals te zien in de linkerbovenhoek zijn er twee knoppen. 
-> 1. 'In/Uit' --> Hiermee kan ervoor gekozen worden te visualiseren waar bijv. Nederlanders op vakantie gaan i.p.v. te
-> zien wie er naar Nederland komen. Oftewel de uitstroom van toerisme vanuit Nederland naar Europese landen. Alle functies van de kaart 
-> blijven hetzelfde. De Scattterplot en PieChart bewegen beschrijvend mee en geven nu de uitstroom ipv instroom weer. 
+> 1. 'In/Uit' --> Hiermee kan ervoor gekozen worden te visualiseren waar, Nederlanders bijvoorbeeld, op vakantie gaan i.p.v. te
+> zien wie er naar Nederland komen. Oftewel de uitstroom van toerisme vanuit Nederland naar andere Europese landen. Alle functies van de > kaart blijven hetzelfde. De Scattterplot en PieChart bewegen beschrijvend mee. De PieChart geeft nu de uitstroom ipv instroom weer. De > ScatterPlot geeft nu het verschil in koopkracht tussen Nederland en elk Europees land (waar data van is). Door nogmaals op de button te > drukken wordt weer de instroom van toerisme per geselecteerd aangegeven.
 > 
-> 2. 'Choose Cause' --> 
+> 2. 'Choose Cause' --> Hiermee kan gekozen worden om de landsgrenzen op taalfamilie te kleuren. Een taalfamilie is bijv. Romaans; 
+> Italie, Frankrijk, Spanje, Portugal en Roemenie, alle spreken ze de Romaanse taal. Deze landen krijgen nu dezelfde kleur landgrens. 
+>
